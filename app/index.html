@@ -31,7 +31,7 @@
       </md-toolbar>
     </div>
 
-    <div ng-view=""></div>
+    <div ui-view></div>
 
     <div class="footer" layout="row" flex="noshrink" layout-align="center center">
         <p>This is footer</p>
@@ -60,6 +60,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -67,6 +68,8 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/directives/householdform.js"></script>
+        <script src="scripts/controllers/new-household-ctrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>

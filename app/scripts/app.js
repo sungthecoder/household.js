@@ -15,23 +15,32 @@ angular
     'ngCookies',
     'ngMessages',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngMaterial'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('new', {
+        url: '/new',
+        templateUrl: 'views/new-household.html',
+        controller: 'NewHouseholdCtrl as ctrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .state('new.house', {
+        url: '/house',
+        templateUrl: 'views/form-house.html'
       })
-      .otherwise({
-        redirectTo: '/'
+      .state('new.people', {
+        url: '/people',
+        templateUrl: 'views/form-people.html'
+      })
+      .state('new.cars', {
+        url: '/cars',
+        templateUrl: 'views/form-cars.html'
+      })
+      .state('new.submit', {
+        url: '/submit',
+        templateUrl: 'views/form-submit.html'
       });
+    $urlRouterProvider.otherwise('/new/house');
   });

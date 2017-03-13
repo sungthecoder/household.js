@@ -1,0 +1,25 @@
+<!-- form.html -->
+<div layout="column" ng-cloak class="md-inline-form">
+  <md-content layout-padding>
+    <div layout="column" layout-align="center center">
+      <h2>New Household</h2>
+      <div layout="row" layout-align="center center" id="status-buttons">
+          <a ui-sref-active="active" ui-sref=".house">
+            <span><md-icon>home</md-icon></span> House
+          </a>
+          <a ui-sref-active="active" ui-sref=".people">
+            <span><md-icon>people</md-icon></span> People
+          </a>
+          <a ui-sref-active="active" ui-sref=".cars">
+            <span><md-icon>directions_car</md-icon></span> Cars
+          </a>
+          <a ui-sref-active="active" ui-sref=".submit">
+            <span><md-icon>save</md-icon></span> Submit
+          </a>
+      </div>
+    </div>
+    <form id="signup-form" ng-submit="ctrl.processForm()">
+      <div id="form-views" ui-view></div>
+    </form>
+  </md-content>
+</div>
