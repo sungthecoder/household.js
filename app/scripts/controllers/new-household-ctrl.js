@@ -8,7 +8,7 @@
  * Controller of the householdApp
  */
 angular.module('householdApp')
-  .controller('NewHouseholdCtrl', function ($state) {
+  .controller('NewHouseholdCtrl', function ($state, states) {
     var ctrl = this;
 
     function onNext(form){
@@ -44,6 +44,7 @@ angular.module('householdApp')
     ctrl.deletePerson     = deletePerson;
     ctrl.addCar           = addCar;
     ctrl.deleteCar        = deleteCar;
+    ctrl.stateOptions     = states;
 
     return ctrl;
   });

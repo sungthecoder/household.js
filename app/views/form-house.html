@@ -16,8 +16,8 @@
 
     <md-input-container class="md-block" flex-gt-sm>
       <label>State</label>
-      <md-select ng-model="user.state">
-        <md-option ng-repeat="state in ctrl.stateOptions" value="{{state.abbrev}}">
+      <md-select ng-model="ctrl.household.state">
+        <md-option ng-repeat="state in ctrl.stateOptions" ng-value="state.abbrev">
           {{state.abbrev}}
         </md-option>
       </md-select>
