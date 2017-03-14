@@ -17,8 +17,12 @@ angular.module('householdApp')
       }
     }
 
-    function addPerson(){
+    function addPerson() {
       ctrl.household.people.push({});
+    }
+
+    function deletePerson(index, person) {
+      ctrl.household.people.splice(index, 1);
     }
 
     // Public attributes
@@ -29,6 +33,7 @@ angular.module('householdApp')
     // Public methods
     ctrl.onNext           = onNext;
     ctrl.addPerson        = addPerson;
+    ctrl.deletePerson     = deletePerson;
 
     return ctrl;
   });

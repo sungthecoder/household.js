@@ -2,7 +2,8 @@
 
 <div id="people-form" ng-form="peopleForm">
   <div ng-repeat="person in ctrl.household.people">
-    <person-form index="$index" person="person"></person-form>
+    <person-form index="$index" person="person" on-delete="ctrl.deletePerson($index, person)">
+    </person-form>
   </div>
 
   <div layout="row">

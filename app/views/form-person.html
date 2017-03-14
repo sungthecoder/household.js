@@ -3,6 +3,13 @@
     <md-card-title-text>
       <span class="index"> {{ ctrl.index + 1 }} </span>
     </md-card-title-text>
+    <div flex>
+    </div>
+    <md-button class="md-icon-button" aria-label="delete" ng-click="ctrl.deletePerson()">
+      <md-icon>delete</md-icon>
+      <md-tooltip>Delete this person</md-tooltip>
+    </md-button>
+
   </md-card-title>
   <md-card-content>
 
