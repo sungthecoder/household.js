@@ -8,7 +8,7 @@
  * Controller of the householdApp
  */
 angular.module('householdApp')
-  .controller('PersonFormCtrl', function () {
+  .controller('PersonFormCtrl', function (genders) {
     var ctrl = this;
 
     function deletePerson(){
@@ -16,6 +16,7 @@ angular.module('householdApp')
     }
 
     ctrl.deletePerson = deletePerson;
+    ctrl.genderOptions = genders;
 
     return ctrl;
   });
