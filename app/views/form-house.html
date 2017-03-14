@@ -1,1 +1,38 @@
-<h1>House</h1>
+<div id="house-form" ng-form="houseForm">
+  <md-input-container class="md-block">
+      <label>Address</label>
+      <input ng-model="ctrl.household.address">
+  </md-input-container>
+
+  <md-input-container md-no-float class="md-block">
+    <input ng-model="ctrl.household.address2" placeholder="Address 2">
+  </md-input-container>
+
+  <div layout-gt-sm="row">
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>City</label>
+      <input ng-model="ctrl.houehold.city">
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>State</label>
+      <md-select ng-model="user.state">
+        <md-option ng-repeat="state in ctrl.stateOptions" value="{{state.abbrev}}">
+          {{state.abbrev}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-gt-sm>
+      <label>Postal Code</label>
+      <input name="postalCode" ng-model="ctrl.household.postalCode" placeholder="12345"
+             required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+
+      <div ng-messages="houseForm.postalCode.$error" role="alert" multiple>
+        <div ng-message="required" class="my-message">You must supply a postal code.</div>
+        <div ng-message="pattern" class="my-message">That doesn't look like a valid postal code. </div>
+        <div ng-message="md-maxlength" class="my-message">Don't use the long version</div>
+      </div>
+    </md-input-container>
+  </div>
+</div>

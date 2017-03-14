@@ -8,8 +8,17 @@
  * Controller of the householdApp
  */
 angular.module('householdApp')
-  .controller('NewHouseholdCtrl', function () {
+  .controller('NewHouseholdCtrl', function ($state) {
     var ctrl = this;
+
+    function onNext(form){
+      if(form.$valid){
+        $state.go('^.people');
+      }
+
+    }
+
+    ctrl.onNext = onNext;
 
     return ctrl;
   });

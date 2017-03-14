@@ -18,8 +18,21 @@
           </a>
       </div>
     </div>
-    <form id="household-form" ng-submit="ctrl.processForm()">
-      <div id="form-views" ui-view></div>
-    </form>
+    <md-card flex-gt-sm="50"   flex-offset-gt-sm="25"
+             flex="100" flex-offset="0" >
+      <form id="household-form" ng-submit="ctrl.processForm()" name="householdForm">
+        <div id="form-views" ui-view></div>
+
+        <div layout="row" layout-align="end">
+          <md-button type="submit" ng-click="ctrl.onNext(householdForm)" class="md-button md-raised md-primary">
+            Next <md-icon>arrow_forward</md-icon>
+          </md-button>
+        </div>
+      </form>
+    </md-card>
+
+    <div>
+      <pre>{{ ctrl.household }}</pre>
+    </div>
   </md-content>
 </div>
