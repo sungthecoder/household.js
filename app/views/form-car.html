@@ -46,8 +46,8 @@
         <md-select required name="model"
           ng-disabled="ctrl.disableModel()"
           ng-model="ctrl.car.model">
-          <md-option ng-repeat="model in ctrl.modelOptions" ng-value="model.model_name">
-            {{ model.model_name }}
+          <md-option ng-repeat="model in ctrl.modelOptions" ng-value="model">
+            {{ model }}
           </md-option>
         </md-select>
         <div ng-messages="carForm.model.$error" role="alert">

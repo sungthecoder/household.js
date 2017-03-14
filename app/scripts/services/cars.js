@@ -61,7 +61,9 @@ angular.module('householdApp')
           make: make
         }
       }).then(function(response){
-        return response.data.Models;
+        return response.data.Models.map(function(model){
+           return model.model_name;
+        });
       });
     }
 

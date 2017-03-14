@@ -9,9 +9,7 @@
  */
 angular.module('householdApp')
   .controller('CarFormCtrl', function (cars) {
-    var ctrl = this,
-      loadModelOnOpen, loadMakeOnOpen;
-
+    var ctrl = this;
 
     ctrl.$onInit = function () {
       if (ctrl.car.year !== undefined){
@@ -23,7 +21,7 @@ angular.module('householdApp')
       if (ctrl.car.model !== undefined) {
         ctrl.modelOptions = [ctrl.car.model];
       }
-    }
+    };
 
     function loadYearOptions(){
       return cars.getYears()
