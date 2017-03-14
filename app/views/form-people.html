@@ -1,1 +1,14 @@
-<h1>People</h1>
+<h3>Please app people to the household</h3>
+
+<div id="people-form" ng-form="peopleForm">
+  <div ng-repeat="person in ctrl.household.people">
+    <person-form index="$index" person="person"></person-form>
+  </div>
+
+  <div layout="row">
+    <md-button flex class="md-raised md-block md-warn" ng-click="ctrl.addPerson()">
+      <md-icon>add</md-icon> Add more
+    </md-button>
+  </div>
+</div>
+

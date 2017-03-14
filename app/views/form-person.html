@@ -1,0 +1,52 @@
+<md-card ng-form="personForm">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="index"> {{ ctrl.index + 1 }} </span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>First Name</label>
+        <input required ng-model="ctrl.person.firstName" name="firstName">
+        <div ng-messages="personForm.firstName.$error" role="alert">
+          <div ng-message="required">Please tell your name</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Last Name</label>
+        <input ng-model="ctrl.person.lastName">
+      </md-input-container>
+    </div>
+    <md-input-container class="md-block">
+      <label>Email</label>
+      <input required type="email" name="email" ng-model="ctrl.person.email"
+               maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+        <div ng-messages="personForm.email.$error" role="alert">
+          <div ng-message-exp="['required','maxlength', 'pattern']">
+            Your email must be less than 100 characters long and look like an e-mail address.
+          </div>
+        </div>
+    </md-input-container>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Age</label>
+        <input ng-model="ctrl.person.age" type="number" min="0" max="200" name="age">
+        <div ng-messages="personForm.age.$error" multiple role="alert">
+          <div ng-message="min">You can't have negative age</div>
+          <div ng-message="max">I've never seen anyone older than 200 years!</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Gender</label>
+        <md-select ng-model="ctrl.person.gender">
+          <md-option ng-repeat="gender in ctrl.genderOptions">
+            {{ gender }}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+  </md-card-content>
+</md-card>

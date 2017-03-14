@@ -15,10 +15,20 @@ angular.module('householdApp')
       if(form.$valid){
         $state.go('^.people');
       }
-
     }
 
-    ctrl.onNext = onNext;
+    function addPerson(){
+      ctrl.household.people.push({});
+    }
+
+    // Public attributes
+    ctrl.household        = {};
+    ctrl.household.people = [{}];
+    ctrl.household.cars   = [{}];
+
+    // Public methods
+    ctrl.onNext           = onNext;
+    ctrl.addPerson        = addPerson;
 
     return ctrl;
   });
