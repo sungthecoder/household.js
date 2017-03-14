@@ -25,6 +25,14 @@ angular.module('householdApp')
       ctrl.household.people.splice(index, 1);
     }
 
+    function addCar() {
+      ctrl.household.cars.push({});
+    }
+
+    function deleteCar(index, car) {
+       ctrl.household.cars.splice(index, 1);
+    }
+
     // Public attributes
     ctrl.household        = {};
     ctrl.household.people = [{}];
@@ -34,6 +42,8 @@ angular.module('householdApp')
     ctrl.onNext           = onNext;
     ctrl.addPerson        = addPerson;
     ctrl.deletePerson     = deletePerson;
+    ctrl.addCar           = addCar;
+    ctrl.deleteCar        = deleteCar;
 
     return ctrl;
   });

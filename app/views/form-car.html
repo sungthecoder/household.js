@@ -1,0 +1,63 @@
+<md-card ng-form="carForm">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="index"> {{ ctrl.index + 1 }} </span>
+    </md-card-title-text>
+    <div flex>
+    </div>
+    <md-button class="md-icon-button" aria-label="delete" ng-click="ctrl.deleteCar()">
+      <md-icon>delete</md-icon>
+      <md-tooltip>Delete this car</md-tooltip>
+    </md-button>
+  </md-card-title>
+  <md-card-content>
+
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Year</label>
+        <md-select required name="year"
+          ng-model="ctrl.car.year"
+          md-on-open="ctrl.loadYearOptions()"
+          md-on-close="ctrl.loadMakeOptions()">
+          <md-option ng-repeat="year in ctrl.yearOptions" ng-value="year">
+            {{ year}}
+          </md-option>
+        </md-select>
+        <div ng-messages="carForm.year.$error" role="alert">
+          <div ng-message="required">required</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Make</label>
+        <md-select required name="make"
+          ng-disabled="ctrl.disableMake()"
+          ng-model="ctrl.car.make"
+          md-on-close="ctrl.loadModelOptions()">
+          <md-option ng-repeat="make in ctrl.makeOptions" ng-value="make.make_id">
+            {{ make.make_display }}
+          </md-option>
+        </md-select>
+        <div ng-messages="carForm.make.$error" role="alert">
+          <div ng-message="required">required</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Model</label>
+        <md-select required name="model"
+          ng-disabled="ctrl.disableModel()"
+          ng-model="ctrl.car.model">
+          <md-option ng-repeat="model in ctrl.modelOptions" ng-value="model.model_name">
+            {{ model.model_name }}
+          </md-option>
+        </md-select>
+        <div ng-messages="carForm.model.$error" role="alert">
+          <div ng-message="required">required</div>
+        </div>
+      </md-input-container>
+    </div>
+    <md-input-container class="md-block">
+      <label>License Plate</label>
+      <input ng-model="ctrl.car.licensePlate">
+    </md-input-container>
+  </md-card-content>
+</md-card>

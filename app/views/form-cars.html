@@ -1,1 +1,14 @@
-<h1> Cars</h1>
+<h3>Please app cars to the household</h3>
+
+<div id="cars-form" ng-form="carsForm">
+  <div ng-repeat="car in ctrl.household.cars">
+    <car-form index="$index" car="car" on-delete="ctrl.deleteCar($index, car)">
+    </car-form>
+  </div>
+
+  <div layout="row">
+    <md-button flex class="md-raised md-block md-warn" ng-click="ctrl.addCar()">
+      <md-icon>add</md-icon> Add more
+    </md-button>
+  </div>
+</div>
