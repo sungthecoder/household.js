@@ -11,9 +11,9 @@ angular.module('householdApp')
   .controller('NewHouseholdCtrl', function ($state, states) {
     var ctrl = this;
 
-    function onNext(form){
+    function onNext(form, nextState){
       if(form.$valid){
-        $state.go('^.people');
+        $state.go('^.' + nextState);
       }
     }
 

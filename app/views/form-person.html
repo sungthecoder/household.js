@@ -49,7 +49,7 @@
       <md-input-container class="md-block" flex-gt-sm>
         <label>Gender</label>
         <md-select ng-model="ctrl.person.gender">
-          <md-option ng-repeat="gender in ctrl.genderOptions">
+          <md-option ng-repeat="gender in ctrl.genderOptions" ng-value="gender">
             {{ gender }}
           </md-option>
         </md-select>

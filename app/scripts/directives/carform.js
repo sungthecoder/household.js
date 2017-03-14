@@ -12,6 +12,7 @@ angular.module('householdApp')
   controller:  'CarFormCtrl as ctrl',
   bindings: {
     car:      '<',
+    people:   '<',
     index:    '<',
     onDelete: '&'
   }

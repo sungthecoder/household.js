@@ -8,25 +8,33 @@
  * Factory in the householdApp.
  */
 angular.module('householdApp')
-  .factory('cars', function ($http, $sce) {
+  .factory('cars', function ($http, $sce, $q) {
     var CARQUERYAPI='https://www.carqueryapi.com/api/0.3',
-      url = $sce.trustAsResourceUrl(CARQUERYAPI);
+      url = $sce.trustAsResourceUrl(CARQUERYAPI),
+      years;
 
     function getYears(){
-      var cmd = 'getYears';
+      var cmd = 'getYears',
+        deferred = $q.defer();
 
-      return $http.jsonp(url, {
-        params: { jsonpCallbackParam: 'callback', cmd: cmd }
-      }).then(function(response){
-        var range, i, min = response.data.Years.min_year,
-          max = response.data.Years.max_year;
+      if (years !== undefined) {
+        deferred.resolve(years);
+        return deferred.promise;
+      } else {
+        return $http.jsonp(url, {
+          params: { jsonpCallbackParam: 'callback', cmd: cmd }
+        }).then(function(response){
+          var range, i, min = response.data.Years.min_year,
+            max = response.data.Years.max_year;
 
-        range = [];
-        for(i = max; i >= min; --i){
-          range.push(i);
-        }
-        return range;
-      });
+          range = [];
+          for(i = max; i >= min; --i){
+            range.push(i);
+          }
+          years = range;
+          return years;
+        });
+      }
     }
 
     function getMakes(year){

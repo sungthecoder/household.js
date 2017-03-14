@@ -9,10 +9,24 @@
  */
 angular.module('householdApp')
   .controller('CarFormCtrl', function (cars) {
-    var ctrl = this;
+    var ctrl = this,
+      loadModelOnOpen, loadMakeOnOpen;
+
+
+    ctrl.$onInit = function () {
+      if (ctrl.car.year !== undefined){
+        ctrl.yearOptions  = [ctrl.car.year];
+      }
+      if (ctrl.car.make !== undefined) {
+        ctrl.makeOptions  = [ctrl.car.make];
+      }
+      if (ctrl.car.model !== undefined) {
+        ctrl.modelOptions = [ctrl.car.model];
+      }
+    }
 
     function loadYearOptions(){
-      return ctrl.yearOptions || cars.getYears()
+      return cars.getYears()
         .then(function(response){
           ctrl.yearOptions = response;
         });
@@ -36,7 +50,7 @@ angular.module('householdApp')
         make = ctrl.car.make;
 
       if (year !== undefined && make !== undefined){
-        return cars.getModels(year, make)
+        return cars.getModels(year, make.make_id)
         .then(function(response){
            ctrl.modelOptions = response;
         });

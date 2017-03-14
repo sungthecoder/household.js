@@ -33,7 +33,7 @@
           ng-disabled="ctrl.disableMake()"
           ng-model="ctrl.car.make"
           md-on-close="ctrl.loadModelOptions()">
-          <md-option ng-repeat="make in ctrl.makeOptions" ng-value="make.make_id">
+          <md-option ng-repeat="make in ctrl.makeOptions" ng-value="make">
             {{ make.make_display }}
           </md-option>
         </md-select>
@@ -58,6 +58,18 @@
     <md-input-container class="md-block">
       <label>License Plate</label>
       <input ng-model="ctrl.car.licensePlate">
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Primary Driver</label>
+      <md-select required name="driver"
+        ng-model="ctrl.car.driver">
+        <md-option ng-repeat="person in ctrl.people" ng-value="person">
+          {{ person.firstName }} {{ person.lastName }}
+        </md-option>
+      </md-select>
+      <div ng-messages="carForm.model.$error" role="alert">
+        <div ng-message="required">required</div>
+      </div>
     </md-input-container>
   </md-card-content>
 </md-card>
