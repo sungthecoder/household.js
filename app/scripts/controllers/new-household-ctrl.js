@@ -38,10 +38,9 @@ angular.module('householdApp')
     }
 
     function submit(){
-      //ctrl.household.save().then(function(){
-        //$state.go('thankyou');
-      //});
-      $state.go('thankyou');
+      ctrl.household.save().then(function(){
+        $state.go('thankyou');
+      });
     }
 
     // Public attributes

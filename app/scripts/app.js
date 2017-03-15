@@ -21,7 +21,7 @@ angular
     'angular-md5',
     'rails'
   ])
-  .constant('API_URL', 'http://localhost:3000')
+  .constant('API_URL', 'http://localhost:3000/api')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('new', {
