@@ -18,8 +18,10 @@ angular
     'ui.router',
     'ngSanitize',
     'ngMaterial',
-    'angular-md5'
+    'angular-md5',
+    'rails'
   ])
+  .constant('API_URL', 'http://localhost:3000')
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('new', {
@@ -42,6 +44,10 @@ angular
       .state('new.submit', {
         url: '/submit',
         templateUrl: 'views/form-submit.html'
+      })
+      .state('thankyou', {
+        url: '/thankyou',
+        templateUrl: 'views/thankyou.html'
       });
     $urlRouterProvider.otherwise('/new/house');
   });

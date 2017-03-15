@@ -31,6 +31,7 @@ module.exports = function(config) {
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-md5/angular-md5.js',
+      'bower_components/angularjs-rails-resource/angularjs-rails-resource.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

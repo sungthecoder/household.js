@@ -8,7 +8,7 @@
  * Controller of the householdApp
  */
 angular.module('householdApp')
-  .controller('NewHouseholdCtrl', function ($state, states, md5) {
+  .controller('NewHouseholdCtrl', function ($state, states, md5, Household) {
     var ctrl = this;
 
     function onNext(form, nextState){
@@ -37,8 +37,15 @@ angular.module('householdApp')
       return md5.createHash(email || '');
     }
 
+    function submit(){
+      //ctrl.household.save().then(function(){
+        //$state.go('thankyou');
+      //});
+      $state.go('thankyou');
+    }
+
     // Public attributes
-    ctrl.household        = {};
+    ctrl.household        = new Household;
     ctrl.household.people = [{}];
     ctrl.household.cars   = [{}];
     ctrl.readyToSubmit    = 'No';
@@ -50,7 +57,8 @@ angular.module('householdApp')
     ctrl.addCar           = addCar;
     ctrl.deleteCar        = deleteCar;
     ctrl.stateOptions     = states;
-    ctrl.getHash = getHash;
+    ctrl.getHash          = getHash;
+    ctrl.submit           = submit;
 
     return ctrl;
   });
