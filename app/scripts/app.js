@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ui.router',
     'ngSanitize',
-    'ngMaterial'
+    'ngMaterial',
+    'angular-md5'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider

@@ -1,1 +1,62 @@
-<h1>Submit</h1>
+<h3>Please review and verify your household information</h3>
+
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">
+        <md-icon>location_on</md-icon> House Address
+      </span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content layout="row" layout-align="space-between">
+    <div flex></div>
+    <div class="address">
+      <p> {{ ctrl.household.address }} </p>
+      <p> {{ ctrl.household.address2 }} </p>
+      <p>
+        {{ ctrl.household.city}}, {{ ctrl.household.state }}, {{ ctrl.household.postalCode }}
+      </p>
+    </div>
+  </md-card-content>
+
+</md-card>
+
+<md-list flex>
+  <md-subheader>People in this household</md-subheader>
+  <md-list-item class="md-3-line" ng-repeat="person in ctrl.household.people">
+    <img ng-src="http://www.gravatar.com/avatar/{{ctrl.getHash(person.email)}}"
+         class="md-avatar" alt="person.email" />
+    <div class="md-list-item-text" layout="column">
+      <h3>{{ person.firstName }} {{ person.lastName }}</h3>
+      <h4>{{ person.email }}</h4>
+      <p> {{ person.age }} years old {{ person.gender }}</p>
+    </div>
+  </md-list-item>
+</md-list>
+<md-list flex>
+  <md-subheader>Cars in this household</md-subheader>
+  <md-list-item class="md-3-line" ng-repeat="car in ctrl.household.cars">
+    <md-icon class="avatar">directions_car</md-icon>
+    <div class="md-list-item-text" layout="column">
+      <h3>{{ car.year }} {{ car.make.make_display }} {{ car.model }}</h3>
+      <h4>{{ car.licensePlate }}</h4>
+      <p> Primary Driver: {{ car.driver.firstName }} {{ car.driver.lastName}}</p>
+    </div>
+  </md-list-item>
+</md-list>
+<div id="submit-form" ng-form="submitForm">
+  <div layout="row" layout-align="center">
+    <md-switch ng-model="ctrl.readyToSubmit" aria-label="Ready to Submit"
+      ng-true-value="'Yes'" ng-false-value="'No'">
+      I have reviewed the information: {{ ctrl.readyToSubmit }}
+    </md-switch>
+  </div>
+  <div layout="row" layout-align="center">
+    <md-button type="submit"
+      ng-disabled="ctrl.readyToSubmit !== 'Yes'"
+      ng-click="ctrl.submit()"
+      class="md-button md-raised md-primary">
+      <md-icon>save</md-icon> Submit
+    </md-button>
+  </div>
+</div>
