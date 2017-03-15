@@ -8,7 +8,7 @@
  * Controller of the householdApp
  */
 angular.module('householdApp')
-  .controller('NewHouseholdCtrl', function ($state, states, md5, Household) {
+  .controller('NewHouseholdCtrl', function ($state, states, md5, Household, IdFactory) {
     var ctrl = this;
 
     function onNext(form, nextState){
@@ -18,7 +18,7 @@ angular.module('householdApp')
     }
 
     function addPerson() {
-      ctrl.household.people.push({});
+      ctrl.household.people.push({driverId: IdFactory.nextId()});
     }
 
     function deletePerson(index, person) {
@@ -45,7 +45,7 @@ angular.module('householdApp')
 
     // Public attributes
     ctrl.household        = new Household;
-    ctrl.household.people = [{}];
+    ctrl.household.people = [{driverId: IdFactory.nextId()}];
     ctrl.household.cars   = [{}];
     ctrl.readyToSubmit    = 'No';
 

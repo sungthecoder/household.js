@@ -26,8 +26,10 @@ angular.module('householdApp')
           }
         });
 
-        this.add('driver_index', function(car) {
-           return 0;
+        this.add('driverId', function(car) {
+          if (car.driver !== undefined){
+             return car.driver.driverId;
+          }
         });
 
         this.exclude('make', 'driver');
